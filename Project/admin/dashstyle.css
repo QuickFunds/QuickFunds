@@ -1,0 +1,477 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #191919; /* Dark background color */
+    color: #fff;
+}
+
+.header {
+    width: 100%;
+    height: 50px;
+    background-color: #dc3545; /* Darker background color for header */
+    color: #fff; /* White text color for header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main {
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    padding-top: 20px; /* Add space at the top */
+}
+
+.sidebar {
+    width: 324px;
+    height: calc(100vh - 70px); /* Set sidebar height to full viewport minus header height */
+    border-radius: 10px; /* Add rounded corners */
+    margin-bottom: 10px;
+    margin-right: 5px; /* Add margin for separation */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+    display: flex; /* Use flexbox to align items vertically */
+    flex-direction: column; /* Stack items vertically */
+}
+
+.sidebar-section {
+    flex: 1; /* Make sections grow to fill available space equally */
+    padding: 20px;
+    border-bottom: 1px solid #444; /* Add borders between sections */
+    margin-bottom: 10px; /* Add margin between sections */
+    border-radius: 10px;
+}
+
+.section-1 {
+    background-color: #444; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adjusted shadow effect */
+}
+
+.section-2 {
+    background-color: #444;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Darker shadow effect */
+}
+
+
+.content-section {
+    width: 631px;
+    height: calc(100vh - 120px);
+    background-color: #444; /* Dark Gray */
+    border-radius: 10px; /* Add rounded corners */
+    padding: 20px;
+    margin: 0 5px; /* Add margin for separation */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Darker shadow effect */
+    overflow-y: auto; /* Add vertical scrollbar */
+}
+
+.right-sidebar {
+    width: 404px;
+    height: calc(100vh - 80px);
+    background-color: #444; /* Dark Gray */
+    border-radius: 10px; /* Add rounded corners */
+    margin-left: 5px; /* Add margin for separation */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Darker shadow effect */
+}
+
+/* Scrollbar Styles */
+.content-section::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px; /* Rounded edges for scrollbar */
+}
+
+.content-section::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Light Gray */
+}
+
+.content-section::-webkit-scrollbar-thumb {
+    background: #777; /* Slightly Darker Gray */
+    border-radius: 10px;
+}
+
+.content-section::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Dark Gray */
+}
+
+
+
+/* User Table Styles */
+.content-section table {
+    width: calc(100% - 30px); /* Adjusted to fit within the container */
+    border-collapse: collapse;
+    border-radius: 8px; /* Add rounded corners to the table */
+    overflow: hidden;
+    background-color: rgba(55, 55, 55, 0.25); /* Dark Gray */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* User Table Header and Data Styles */
+.content-section th,
+.content-section td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #777; /* Gray */
+    color: #ddd; /* Light Gray */
+    transition: background 0.3s ease;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Show ellipsis for overflowing content */
+}
+
+.content-section th {
+    background: #dc3545; /* Red */
+}
+
+
+    .edit-user-btn {
+        background-color:  #dc3545;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .edit-user-btn:hover {
+        background-color: rgba(55, 55, 55, 0.25); /* Dark Gray */
+    }
+
+/* Popup Container */
+#editUserPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+/* Popup Header */
+#editUserPopup .popup-header {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Close Button */
+#editUserPopup .close-btn {
+    cursor: pointer;
+}
+
+/* Popup Content */
+#editUserPopup .popup-content {
+    padding: 20px;
+}
+
+/* Submit Button */
+#editUserPopup #submit-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#editUserPopup #submit-btn:hover {
+    background-color: rgba(55, 55, 55, 0.25); /* Dark Gray */
+}
+
+
+        /* Popup Styles */
+        #editUserPopup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #212121f7;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            color: rgb(255, 255, 255);
+        }
+
+        /* Search Input Styles */
+        #searchInput {
+            margin-top: 20px;
+            padding: 8px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+
+     
+     
+       /* Admin Logs Styles */
+.admin-logs {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+    max-height: 590px; /* Limiting the maximum height to enable scrolling */
+    overflow-y: auto; /* Adding vertical scrollbar if content exceeds the height */
+    border-radius: 10px; /* Rounded corners for the container */
+    background-color: #444; /* Dark Gray background */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Darker shadow effect */
+}
+
+.admin-logs li {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color 0.3s;
+    background-color: #555; /* Darker background color for logs */
+    border-radius: 5px; /* Add rounded corners */
+    margin-bottom: 10px; /* Add margin between logs */
+}
+
+.admin-logs li:hover {
+    background-color: #666; /* Darker background color on hover */
+}
+
+/* Case ID */
+.case-id {
+    font-weight: bold;
+    color: #fff; /* White text color */
+}
+
+/* Admin ID, User ID, Action, Comment */
+.log-detail {
+    margin-left: 20px;
+    color: #ddd; /* Light Gray text color */
+}
+
+/* Scrollbar Styles */
+.admin-logs::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px; /* Rounded edges for scrollbar */
+}
+
+.admin-logs::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Light Gray */
+}
+
+.admin-logs::-webkit-scrollbar-thumb {
+    background: #777; /* Slightly Darker Gray */
+    border-radius: 10px;
+}
+
+.admin-logs::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Dark Gray */
+}
+
+/* Search Input Styles */
+#searchCaseInput {
+    margin-top: 7px;
+    padding: 8px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px; /* Rounded edges for scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Light Gray */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #777; /* Slightly Darker Gray */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Dark Gray */
+}
+
+   
+    
+
+ /* Media Queries for Responsiveness */
+/* Adjust main container to stack sections vertically for smaller screens */
+/* Media Queries for Responsiveness */
+
+/* Adjust main container to stack sections vertically for smaller screens */
+@media screen and (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
+
+    /* Make all containers flex and set their width to 100% */
+    .sidebar,
+    .content-section,
+    .right-sidebar {
+        width: 100%;
+    }
+}
+
+
+/* CSS for Profit Calculator */
+.sidebar-section {
+    text-align: center;
+}
+
+.sidebar-section h2 {
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.profit-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profit-form label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+.profit-form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.profit-form button {
+    padding: 12px 30px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.profit-form button:hover {
+    background-color: #fff;
+    color:#dc3545
+}
+
+.profit-result {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.profit-form select option:hover {
+    background-color: red;
+    color: rgb(253, 23, 23);
+}
+
+#logoutButton {
+    margin-left: 10px;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    background-color: #dc3545;
+    color: #fff;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#logoutButton:hover {
+    background-color: #c82333;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Styling for star rating container */
+.star-rating-container {
+    width: 100%;
+    padding-right: 50px;
+    padding-left: 50px;
+    font-size: 20px; /* Adjust as needed */
+    line-height: 1; /* Ensure stars are vertically centered */
+}
+
+/* Styling for golden stars */
+.gold {
+    color: rgb(255, 217, 0);
+}
+
+.sidebar-section.section-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    text-align: center; /* Center text */
+}
+
+.section-3 {
+    background-color: #444; /* Dark Gray */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Darker shadow effect */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.section-3 .btn-container {
+    display: flex; /* Change display property to flex */
+    flex-direction: column; /* Arrange buttons in a column */
+    gap: 20px; /* Add space between buttons */
+}
+
+.section-3 .btn {
+    /* Remove width: 100%; to allow buttons to expand horizontally */
+    margin: 0; /* Remove margin to ensure buttons fill the container */
+}
+
+
+.section-3 .btn {
+    display: block; /* Ensure buttons are block elements */
+    padding: 0.75rem; /* Increase padding for larger buttons */
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    width: 100%; /* Ensure buttons fill their container */
+    color: #fff; /* Text color */
+    background-color: #c82333; /* Original button color */
+    border-color: #c82333; /* Original border color */
+}
+
+.section-3 .btn:hover {
+    background-color: #fff; /* Darker blue on hover */
+    border-color: #fff; /* Darker border color on hover */
+}
+
+.qfunds {
+    margin-left: 10px; /* Adjust the value as needed */
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="shortcut icon" type="image" href="log.png">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<body>
+    <section class="container">
+        <div class="login-container">
+            <div class="circle circle-one"></div>
+            <div class="form-container">
+                <img id = "pic" src="about1.png" alt="illustration" class="illustration" />
+                <h1 class="opacity">LOGIN</h1>
+                <form id="loginForm">
+                    <input type="text" id="username" name="username" required placeholder="Username" />
+                    <input type="password" id="password" name="password" required placeholder="Password" />
+                    <button type="submit">Login</button>
+                </form>
+             
+            </div>
+            <div class="circle circle-two"></div>
+        </div>
+        <div class="theme-btn-container"></div>
+    </section>
+</body>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+  <style>
+ #pic {
+    position: fixed; /* or absolute, depending on your layout */
+    margin-top: -130px;
+    margin-right: -205px;
+   z-index: 9999;
+    width: 400px; /* Adjust the width as needed */
+    height: 400px; /* Adjust the height as needed */
+}
+
+  </style>
+  
+
+</body>
+</html>
