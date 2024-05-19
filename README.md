@@ -11,7 +11,7 @@ Here are some ideas to get you started:
 - 👯 I’m looking to collaborate on innovative fintech solutions.
 - 🤔 I’m looking for help with enhancing the security features of QuickFunds.
 - 💬 Ask me about web development, API integrations, and cybersecurity.
-- 📫 How to reach me: quickfunds@example.com
+- 📫 How to reach me: quickfundslb@gmail.com
 - 😄 Pronouns: They/Them
 - ⚡ Fun fact: I love solving complex puzzles and challenges.
 
@@ -31,10 +31,10 @@ I am currently not accepting contributions to this repository. Any pull requests
 
 ### Contact
 
-For any inquiries, please contact me at quickfunds@example.com.
+For any inquiries, please contact me at quickfundslb@gmail.com
 
 Thank you for respecting the usage restrictions of this repository.
 
 ---
 
-This project is done by Taha El Fil and Mohammad Mekdash
+This project is done by Taha El Fil & Mohammad Mekdash
