@@ -6,14 +6,8 @@
 Here are some ideas to get you started:
 -->
 
-- 🔭 I’m currently working on QuickFunds, a financial management tool.
-- 🌱 I’m currently learning advanced JavaScript techniques and cloud infrastructure.
-- 👯 I’m looking to collaborate on innovative fintech solutions.
-- 🤔 I’m looking for help with enhancing the security features of QuickFunds.
-- 💬 Ask me about web development, API integrations, and cybersecurity.
-- 📫 How to reach me: quickfundslb@gmail.com
-- 😄 Pronouns: They/Them
-- ⚡ Fun fact: I love solving complex puzzles and challenges.
+
+- 📫 How to reach us: quickfundslb@gmail.com
 
 ## Important Notice 🚨
 
