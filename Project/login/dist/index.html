@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign up now </title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="shortcut icon" type="image" href="../../Homepage/SD/images/log.png">
+</head>
+<body>
+
+  <video autoplay muted loop class="video-bg">
+    <source src="../../Homepage/SD/images/videoplayback.mp4" type="video/mp4">
+    <!-- Add additional source elements for other video formats if needed -->
+    Your browser does not support the video tag.
+   </video>
+
+   <a href="../../index.html">
+    <img src="../../Homepage/SD/images/about1.png" alt="" id="logo">
+  </a>
+   
+
+   
+
+   <a href="../../index.html">
+    <i class="fas fa-home "></i>
+  </a>
+  <div class="main">
+
+    <input type="checkbox" id="chk" aria-hidden="true">
+    <div class="signup">
+      <form id="signupForm" action="../../Phpfiles/register.php" method="post">
+        
+        <label for="chk" aria-hidden="true">Sign up</label>
+        <input type="text" name="username" id="username" placeholder="User name" required>
+        <input type="email" name="email" id="email" placeholder="Email" required>
+        <div style="position: relative;">
+          <input type="password" name="password" id="password" placeholder="Password" required>
+          <div id="passwordStrength" style="position: absolute; top: 50%; right: 65px; transform: translateY(-50%);"></div>
+        </div>
+        <span id="passwordMessage"></span>
+        <button type="submit">Sign up</button>
+      </form>
+    </div>
+
+    <div class="login">
+      <form action="../../Phpfiles/login.php"  id="loginForm" method="post">
+        <label for="chk" aria-hidden="true">Login</label>
+        <input type="text" name="username" id="loginUsername" placeholder="Username" required="">
+        <input type="password" name="password" id="loginPassword" placeholder="Password" required="">
+        <span id="eye" onclick="togglePasswordVisibility()">
+  <i id="eyeIcon" class="fas fa-eye"></i>
+        </span>
+        <button type="submit">Login</button>
+      </form>
+      <button onclick="openForgotPasswordPrompt()">Forgot Password?</button>
+    </div>
+  </div>
+
+   <!-- The pop-up container -->
+   <!-- Forgot password prompt -->
+   <div id="forgotPasswordPopup" class="popup-container">
+    <div class="popup-content">
+      <span class="close" onclick="closeForgotPasswordPrompt()">&times;</span>
+      <h2>Forgot Password</h2>
+      <p>Please enter your email address to reset your password.</p>
+      <input type="email" id="forgotPasswordEmail" placeholder="Enter your email" required>
+      <button onclick="sendPasswordResetEmail()">Send Reset Email</button>
+    </div>
+  </div>
+
+
+  <!-- The pop-up container -->
+<div id="popupContainer" class="popup-container">
+  <div class="popup-content">
+      <!-- Your Privacy Policy content goes here -->
+      <h2>Privacy Policy</h2>
+
+      <h3>Introduction</h3>
+      <p>
+        QuickFunds ("us," "we," or "our") operates quickfunds.com (the "Site"). This page informs you of our policies regarding the collection, use, and disclosure of Personal Information we receive from users of the Site.
+      </p>
+  
+      <h3>Scope of Privacy Policy</h3>
+      <p>
+        This Privacy Policy applies only to the Site and not to any third-party websites or services that may be linked to or from the Site.
+      </p>
+  
+      <h3>Information Collection and Use</h3>
+      <p>
+        While using our Site, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information may include, but is not limited to your name, email address, and contact information ("Personal Information").
+      </p>
+      <p>
+        We collect and use Personal Information only for the following purposes:
+      </p>
+      <ul>
+        <li>To provide and improve the Site</li>
+        <li>To communicate with users</li>
+        <li>To protect the Site and users</li>
+      </ul>
+  
+      <h3>Log Data</h3>
+      <p>
+        Like many site operators, we collect information that your browser sends whenever you visit our Site ("Log Data"). This Log Data may include information such as your computer's Internet Protocol ("IP") address, browser type, browser version, the pages of our Site that you visit, the time and date of your visit, the time spent on those pages, and other statistics.
+      </p>
+      <p>
+        We use Log Data only for the following purposes:
+      </p>
+      <ul>
+        <li>To provide and improve the Site</li>
+        <li>To protect the Site and users</li>
+      </ul>
+  
+      <h3>Cookies</h3>
+      <p>
+        We use cookies to collect information about your computer or device, such as your IP address, browser type, browser language, and other information that is automatically collected by our servers.
+      </p>
+      <p>
+        We use cookies only for the following purposes:
+      </p>
+      <ul>
+        <li>To provide and improve the Site</li>
+        <li>To protect the Site and users</li>
+      </ul>
+  
+      <h3>Third-Party Analytics</h3>
+      <p>
+        We use third-party analytics tools to collect information about your computer or device for the purposes of providing and improving the Site and protecting the Site and its users.
+      </p>
+  
+      <h3>Security</h3>
+      <p>
+        The security of your Personal Information is important to us. We use reasonable administrative, technical, and physical measures to protect your Personal Information from unauthorized access, use, and disclosure.
+      </p>
+  
+      <h3>Changes to This Privacy Policy</h3>
+      <p>
+        This Privacy Policy is effective as of 1/1/2023 and will remain in effect except with respect to any changes in its provisions in the future, which will be in effect immediately after being posted on this page.
+      </p>
+      <p>
+        We reserve the right to update or change our Privacy Policy at any time, and you should check this Privacy Policy periodically. Your continued use of the Site after we post any modifications to the Privacy Policy constitutes acceptance of those changes.
+      </p>
+      <button id="agreeButton">I Agree To These Terms!</button>
+  </div>
+</div>
+
+<style>
+  /* Style for the pop-up container */
+  body {
+    font-family: 'Arial', sans-serif; /* Change 'Arial' to your preferred font */
+  }
+
+  .popup-content > h2,
+  .popup-content > h3 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+ .popup-container {
+     display: none;
+     position: fixed;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     background-color: #2e292c;
+     border: 0.2px solid #ccc;
+     border-radius: 2px;
+     box-shadow: 0 0 10px rgba(255, 162, 162, 0.733);
+     max-width: 80%;
+     max-height: 80%;
+     overflow-y: auto;
+     padding: 20px;
+     z-index: 9999;
+ }
+ 
+ .popup-content {
+     text-align: left;
+     line-height: 1.6;
+     color: #fff;
+ }
+ 
+ #agreeButton {
+     padding: 10px 20px;
+     margin-top: 20px;
+     background-color: #e5565c;
+     color: white;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+ }
+ 
+ #agreeButton:hover {
+     background-color: #fff;
+     color: #e5565c;
+ }
+ 
+ /* Scrollbar Styles */
+ .popup-container::-webkit-scrollbar {
+     width: 8px;
+ }
+ 
+ .popup-container::-webkit-scrollbar-track {
+     background: #fcfcfc00;
+ }
+ 
+ .popup-container::-webkit-scrollbar-thumb {
+     background: #ff9999;
+     border-radius: 4px;
+ }
+ 
+ .popup-container::-webkit-scrollbar-thumb:hover {
+     background: #fff7f7;
+ }
+
+ #loginPassword {
+  position: relative;
+}
+
+#eye {
+  color: #a8a8a8;
+  cursor: pointer;
+  position: absolute;
+  right: 68px;
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+ </style>
+
+
+<script src="../../jquery-3.7.1.min.js"></script>
+
+<script src="log.js"></script>
+<script src="formValidation.js"></script>
+<script src="reg.js"></script>
+<script src="visibility.js"></script>
+<script src="forgotpass.js"></script>
+
+</body>
+</html>
