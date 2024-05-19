@@ -1,0 +1,101 @@
+/* Initially hide the profile section */
+.profile-section {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Slide from the left, initially hidden */
+    width: 300px;
+    height: 100%;
+    background-color: rgba(25, 25, 25, 0.588); /* Match with the main container's background */
+    transition: left 0.3s ease-in-out; /* Smooth sliding effect */
+    z-index: 1000; /* Ensure it appears above other content */
+    padding: 20px; /* Adjust padding as per your design */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.319); /* Add box shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Align items with space between */
+}
+
+/* Style for the profile logo/icon */
+.profile-logo {
+    cursor: pointer;
+    color: #fff; /* Set the color to match your theme */
+    font-size: 24px; /* Adjust the size as needed */
+    margin-left: 20px; /* Adjust the margin as needed */
+}
+
+.phone-logo {
+    cursor: pointer;
+    color: #fff; /* Set the color to match your theme */
+    font-size: 22px; /* Adjust the size as needed */
+    margin-left: 15px; /* Adjust the margin as needed */
+
+}
+
+/* Style for the settings logo/icon */
+.settings-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+}
+
+.survey-logo {
+    position: absolute;
+    top: 20px;
+    left: 200px;
+    font-size: 24px;
+}
+
+/* Adjustments for the forms inside profile-section */
+#addCardForm,
+#changePasswordForm {
+    display: none; /* Initially hide the forms */
+    width: 100%; /* Set width to occupy the container */
+}
+
+#addCardForm .form-group,
+#changePasswordForm .form-group {
+    width: 80%; /* Adjust width of form elements */
+    margin-bottom: 20px;
+}
+
+#addCardForm .btn-block,
+#changePasswordForm .btn-block {
+    width: 100%;
+}
+
+#changePasswordForm .btn-block {
+    margin-top: 10px; /* Adjust margin-top to create space between button and input fields */
+}
+#logoImg {
+    max-width: 100%; /* Adjust the maximum width to fit inside the container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure it behaves as a block element */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+.welcome-message {
+    background-color: rgba(53, 53, 53, 0.588);
+    border-radius: 8px;
+    padding: 5px;
+    margin-top: 44px;
+    padding-bottom: 2px;
+}
+
+/* Style for the username */
+.welcome-message .username {
+    font-weight: bold;
+    color: #dc3545;; /* Change color as per your design */
+}
+
+/* Style for the timestamp */
+.welcome-message .timestamp {
+    font-style: italic;
+    color: #888; /* Change color as per your design */
+}
+
+.smaller-input {
+    width: 100%; /* Adjust the width to fit your layout */
+    max-width: 250px; /* Maximum width for responsiveness */
+    margin-right: 10px; /* Adjust the spacing between inputs */
+}

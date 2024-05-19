@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickFunds</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" type="image" href="../Homepage/SD/images/log.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body class="bg-dark text-light">
+    
+
+    <nav class="navbar navbar-dark bg-danger">
+        <a class="navbar-brand" href="../index.html">QuickFunds</a>
+        <div class="user-info">
+            <span id="userIdPlaceholder"></span>
+            <span id="usernamePlaceholder"></span>
+        </div>
+        <!-- Profile section -->
+        <div class="profile-section">
+            <div class="options">
+                <!-- Add other options before the settings -->
+                <img id="logoImg" src="../Homepage/SD/images/about1.png" alt="" style="display: none;">
+                <!-- Settings option displayed as a logo -->
+                
+                <div id="settingsOption" class="settings-logo text-light" style="cursor: pointer;">
+                    <i class="fas fa-cog"></i>
+                </div>
+
+                <a href="survey.html">
+                    <div id="surveryOption" class="survey-logo text-light" style="cursor: pointer;">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                </a>
+
+                <div id="welcomeuser"> 
+                    <p> </p>
+                </div>
+            </div>
+
+    
+
+<!-- The modal -->
+<div id="phoneNumberModal" class="modal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Enter Your Phone Number</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closePhoneNumberForm()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="phoneNumberForm" onsubmit="submitPhoneNumberForm(event)">
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number:</label>
+              <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" pattern="[0-9]+" title="Please enter only numbers" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+            <!-- Form for adding card -->
+
+            <form id="addCardForm" class="form-container">
+                <div class="form-group">
+                    <label for="ccNumber" class="text-light">Credit Card Information:</label>
+                    <input type="text" id="ccNumber" name="ccNumber" class="form-control" required placeholder="16 digit number">
+                    <span id="ccNumberError" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    
+                    <input type="text" id="ccv" name="ccv" class="form-control smaller-input" required placeholder="CCV">
+                    <span id="ccvError" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                   
+                    <input type="date" id="expiryDate" name="expiryDate" class="form-control smaller-input" required placeholder="Expiry date">
+                    <span id="expiryDateError" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-danger btn-lg btn-block animated-button">Add Credit Card</button>
+            </form>
+
+            <!-- Form for changing password -->
+            <form id="changePasswordForm" class="form-container" style="display: none;">
+                <div>
+                    <label for="oldPassword" class="text-light">Old Password:</label>
+                    <input type="password" id="oldPassword" name="oldPassword" class="form-control" required>
+                </div>
+                <div>
+                    <label for="newPassword" class="text-light">New Password:</label>
+                    <input type="password" id="newPassword" name="newPassword" class="form-control" required>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-danger btn-lg btn-block animated-button">Change password</button>
+                </div>
+            </form>
+    
+            <!-- Display password change result -->
+            <div id="passwordChangeResult"></div>
+
+          
+           
+    
+            <!-- Logout form -->
+            <form class="form-inline" action="../Phpfiles/logout.php" method="post">
+                <button type="submit" class="btn btn-danger btn-lg btn-block animated-button">Sign out</button>
+            </form>
+        </div>
+        <!-- Profile logo -->
+
+         <span class="phone-logo" onclick="openPhoneNumberForm()">
+            <i class="fas fa-phone"></i>
+        </span>
+
+        <span class="profile-logo" onclick="toggleProfile()">
+            <i class="fas fa-user-circle"></i>
+        </span>
+
+       
+
+    </nav>
+    
+
+    <div class="container">
+        <div class="row">
+            <!-- Money Transfer and History Section -->
+            <div class="col-md-6">
+                <div class="function-container" id="moneyTransferSection">
+                    <div class="main-content">
+
+                        <!-- Money Transfer Form -->
+                        <div class="transfer-form" id="transferFormContainer">
+                            
+                            <h2 class="text-danger"><span id="userBalance"> </span></h2>
+                            <form id="transferForm" method="post">
+                                <div class="form-group">
+                                    <label for="toID" class="text-light">Recipient's UserID:</label>
+                                    <input type="number" id="toID" name="toID" class="form-control" required
+                                        placeholder="Enter recipient's UserID: ">
+                                </div>
+                                <div class="form-group">
+                                    <label for="amount" class="text-light">Amount to Transfer:</label>
+                                    <input type="number" id="amount" name="amount" class="form-control" required
+                                        placeholder="1$ fee is deducted upon transfer">
+                                </div>
+                                <button type="submit" id="transferButton"
+                                    class="btn btn-danger btn-lg btn-block animated-button">Transfer Funds</button>
+                            </form>
+                        </div>
+                        <!-- Transaction History -->
+                        <div class="transaction-history" id="transactionHistoryContainer">
+                            <h2>Transaction History</h2>
+                            <div id="transactionHistory" style="display: none;">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>2023-12-29</td>
+                                            <td>$100</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button id="showHistoryBtn">Show History</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Operations Section -->
+            <div class="col-md-6">
+                <div class="function-container" id="additionalOperationsSection">
+                    <h1 class="text-danger">Additional Operations</h1>
+                    <!-- Test Credit Card Operations -->
+                    <h2 class="text-danger"></h2>
+                    <hr class="bg-light">
+                    <h2 class="text-danger">Check User's ID</h2>
+                    <input type="text" id="usernameInput" placeholder="Enter Username..">
+                    <button id="checkUserID" class="btn btn-danger btn-lg btn-block animated-button">Check User Id</button>
+                    <div id="result"></div>
+
+                    <style>
+                        
+                            #result {
+                                color: lightgray; /* Set text color to light gray */
+                                font-style: italic; /* Set font style to italic */
+                            }
+                        
+                    </style>
+                    
+                    <!-- Withdrawal Operations -->
+                    
+                    <h2 class="text-danger" id="wop">Withdrawal Operations</h2>
+                    <form id="userToCardForm">
+                        <div class="form-group">
+                            <label for="withdrawAmount" class="text-light">Withdraw to card:</label>
+                            <input type="number" id="withdrawalAmount" name="withdrawalAmount" class="form-control"
+                                required placeholder="Enter withdrawal amount">
+                        </div>
+                        <button type="submit"
+                            class="btn btn-danger btn-lg btn-block animated-button">Withdraw</button>
+                    </form>
+                    <form id="cardToUserForm">
+                        <div class="form-group">
+                            <label for="withdrawAmount2" class="text-light">Deposit from credit card:</label>
+                            <input type="number" id="withdrawalAmount2" name="withdrawalAmount2" class="form-control"
+                                required placeholder="Enter deposit amount">
+                        </div>
+                        <button type="submit"
+                            class="btn btn-danger btn-lg btn-block animated-button">Deposit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="../jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Your custom JavaScript file -->
+    <script src="functions.js"></script>
+    <script src="validations.js"></script>
+    <script src="profile.js"></script>
+    <script src="number.js"></script>
+
+   
+
+</body>
+
+
+
+</html>

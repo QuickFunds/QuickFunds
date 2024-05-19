@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickFunds Website Feedback Survey</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #1a1a1a, #171616);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Make the main layout a column */
+            align-items: center; /* Center items horizontally */
+            min-height: 100vh; /* Ensure full viewport height */
+        }
+
+        /* Navbar Styles */
+        nav {
+            background-color: #343a40; /* Dark background color */
+            padding: 10px 20px; /* Padding for content inside the navbar */
+            width: 100%; /* Full width of the viewport */
+            position: fixed; /* Fixed positioning */
+            top: 0; /* Place the nav at the top of the viewport */
+            z-index: 999; /* Set a higher z-index to ensure it appears above other elements */
+        }
+
+        .navbar-brand {
+            color: #fff; /* Text color */
+            font-size: 24px; /* Adjust as needed */
+        }
+
+        .user-info,
+        form {
+            color: #fff; /* Text color */
+            margin-left: auto; /* Push these elements to the right */
+        }
+
+        /* Main Container Styles */
+        .container {
+            margin-top: 10px; /* Adjust as needed */
+            margin-bottom: 10px;
+            background-color: rgba(137, 137, 137, 0.25);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        /* Function Container Styles */
+        .function-container {
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            margin-top: 20px; /* Adjust as needed */
+        }
+
+        /* Header Styles */
+        .function-container header {
+            margin-bottom: 40px; /* Increased spacing for header */
+        }
+
+        .function-container h1 {
+            font-size: 3rem; /* Larger font size for header */
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #dc3545;
+        }
+
+        /* Forms */
+        .function-container form {
+            width: 100%;
+            margin: 30px 0; /* Increased spacing for forms */
+            background: #444; /* Dark Gray */
+            border-radius: 8px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .function-container form:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+        }
+
+        .function-container label {
+            display: block;
+            font-weight: bold;
+            color: #ddd; /* Light Gray */
+            margin-bottom: 15px;
+        }
+
+        .function-container input[type="text"],
+        .function-container input[type="number"],
+        .function-container input[type="password"],
+        .function-container input[type="email"] {
+            width: calc(100% - 20px);
+            padding: 10px; /* Smaller padding for smaller text boxes */
+            border-radius: 8px;
+            border: 1px solid #777; /* Gray */
+            background-color: #555; /* Dark Gray */
+            color: #ddd; /* Light Gray */
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .function-container input[type="text"]:focus,
+        .function-container input[type="number"]:focus,
+        .function-container input[type="password"]:focus,
+        .function-container input[type="email"]:focus {
+            background-color: #666; /* Darker Gray */
+            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(239, 253, 238, 0.7);
+        }
+
+        .function-container button[type="submit"],
+        .function-container button,
+        .function-container .btn {
+            background: #dc3545; /* Red - PayPal's primary color */
+            color: #fff;
+            border: none;
+            padding: 15px 40px; /* Increased padding for bigger button */
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .function-container button[type="submit"]:hover,
+        .function-container button:hover,
+        .function-container .btn:hover,
+        .function-container select:hover { /* Apply hover effect on select options */
+            background: #c82333; /* Slightly Darker Red */
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Select Options Styles */
+        .function-container select {
+            background-color: #555; /* Dark Gray */
+            color: #ddd; /* Light Gray */
+            border-radius: 8px;
+            border: 1px solid #777; /* Gray */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* 
+ we use the webkit scroll to change the width for the scroll bar
+*/
+html::-webkit-scrollbar {
+    width: .8rem;
+    position: fixed;
+    top: 50px; /* Position scrollbar below the nav */
+    z-index: 998; /* Set lower z-index than the nav */
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #dc3545;
+    border-radius: 1rem;
+}
+
+input.is-invalid {
+    border-color: #dc3545; /* Red border color for invalid input */
+    background-color: #fff0f1; /* Light red background color for invalid input */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5 mb-4" style="color: #fa5262;">QuickFunds Website Feedback Survey</h1>
+        <form id="surveyForm" method="post" action="../Phpfiles/survey.php">
+            <div class="form-group">
+                <label for="likes">1. What do you like most about QuickFunds.com?</label>
+                <textarea class="form-control" id="likes" name="likes" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="improvements">2. What areas do you think need improvement on QuickFunds.com?</label>
+                <textarea class="form-control" id="improvements" name="improvements" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="additionalComments">3. Do you have any additional comments or suggestions for QuickFunds.com?</label>
+                <textarea class="form-control" id="additionalComments" name="additionalComments" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="experienceRating">4. How would you rate your overall experience using QuickFunds.com?</label>
+                <select class="form-control" id="experienceRating" name="experienceRating" required>
+                    <option value="">Select rating</option>
+                    <option value="5">Excellent</option>
+                    <option value="4">Very Good</option>
+                    <option value="3">Good</option>
+                    <option value="2">Fair</option>
+                    <option value="1">Poor</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="likelihoodRecommend">5. How likely are you to recommend QuickFunds.com to others?</label>
+                <select class="form-control" id="likelihoodRecommend" name="likelihoodRecommend">
+                    <option value="">Select likelihood</option>
+                    <option value="5">Very Likely</option>
+                    <option value="4">Likely</option>
+                    <option value="3">Neutral</option>
+                    <option value="2">Unlikely</option>
+                    <option value="1">Very Unlikely</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-lg btn-primary btn-block" style="background-color:#c82333; border: #c82333;">Submit</button> <!-- Change background-color to modify button color -->
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

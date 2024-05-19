@@ -1,0 +1,358 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #1a1a1a, #171616);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Make the main layout a column */
+    align-items: center; /* Center items horizontally */
+    min-height: 100vh; /* Ensure full viewport height */
+}
+
+/* Navbar Styles */
+nav {
+    background-color: #343a40; /* Dark background color */
+    padding: 10px 20px; /* Padding for content inside the navbar */
+    width: 100%; /* Full width of the viewport */
+    position: fixed; /* Fixed positioning */
+    top: 0; /* Place the nav at the top of the viewport */
+    z-index: 999; /* Set a higher z-index to ensure it appears above other elements */
+}
+
+.navbar-brand {
+    color: #fff; /* Text color */
+    font-size: 24px; /* Adjust as needed */
+}
+
+.user-info,
+form {
+    color: #fff; /* Text color */
+    margin-left: auto; /* Push these elements to the right */
+}
+
+/* Main Container Styles */
+.container {
+    margin-top: 10px; /* Adjust as needed */
+    margin-bottom: 10px;
+    background-color: rgba(137, 137, 137, 0.25);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+/* Function Container Styles */
+.function-container {
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    margin-top: 20px; /* Adjust as needed */
+}
+
+/* Header Styles */
+.function-container header {
+    margin-bottom: 40px; /* Increased spacing for header */
+}
+
+.function-container h1 {
+    font-size: 3rem; /* Larger font size for header */
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #dc3545; 
+}
+
+.function-container .balance-info {
+    font-size: 1.5rem; /* Larger font size for balance info */
+    margin-bottom: 30px; /* Increased spacing for balance info */
+    color: #6c757d; /* Gray */
+}
+
+/* Forms */
+.function-container form {
+    width: 100%;
+    margin: 30px 0; /* Increased spacing for forms */
+    background: #444; /* Dark Gray */
+    border-radius: 8px;
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.function-container form:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.function-container label {
+    display: block;
+    font-weight: bold;
+    color: #ddd; /* Light Gray */
+    margin-bottom: 15px;
+}
+
+.function-container input[type="text"],
+.function-container input[type="number"],
+.function-container input[type="password"],
+.function-container input[type="email"] {
+    width: calc(100% - 20px);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #777; /* Gray */
+    background-color: #555; /* Dark Gray */
+    color: #ddd; /* Light Gray */
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.function-container input[type="text"]:focus,
+.function-container input[type="number"]:focus,
+.function-container input[type="password"]:focus,
+.function-container input[type="email"]:focus {
+    background-color: #666; /* Darker Gray */
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(239, 253, 238, 0.7);
+}
+
+.function-container input[type="submit"],
+.function-container button,
+.function-container .btn {
+    background: #dc3545; /* Red - PayPal's primary color */
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.function-container input[type="submit"]:hover,
+.function-container button:hover,
+.function-container .btn:hover {
+    background: #c82333; /* Slightly Darker Red */
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+}
+
+/* Lists */
+.function-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.function-container li {
+    margin-bottom: 15px; /* Increased spacing for list items */
+}
+
+/* Additional Operations Section Styles */
+#additionalOperationsSection {
+    margin-top: 30px; /* Increased spacing for additional operations section */
+}
+
+#withdrawalResult {
+    margin-top: 20px; /* Increased spacing for withdrawal result */
+    font-size: 1.5rem; /* Larger font size for withdrawal result */
+    color: #6c757d; /* Gray */
+}
+
+/* Transaction History Styles (Similar to Table Header) */
+#transactionHistoryContainer {
+    margin-top: 30px; /* Increased spacing for transaction history container */
+    margin-bottom: 30px; /* Increased spacing for transaction history container */
+    padding: 30px;
+    border-radius: 8px;
+    background-color: rgba(55, 55, 55, 0.25);; /* Dark Gray */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    
+}
+
+#transactionHistoryContainer h2,
+#transactionHistoryContainer button {
+    background-color: #dc3545;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: #f9f9f9;
+}
+
+/* Table Styles (Transaction History Table) */
+#transactionHistoryContainer table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#transactionHistoryContainer th,
+#transactionHistoryContainer td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #777; /* Gray */
+    color: #ddd; /* Light Gray */
+    transition: background 0.3s ease;
+}
+
+#transactionHistoryContainer th {
+    background: #dc3545; /* Red - PayPal's primary color */
+    color: #fff;
+    font-weight: bold;
+}
+
+#transactionHistoryContainer tbody tr:nth-child(even) {
+    background: #515151; /* Darker Gray */
+}
+
+#transactionHistoryContainer tbody tr:nth-child(odd) {
+    background: #3f3f3f; /* Darker Gray */
+}
+
+#transactionHistoryContainer tbody tr:hover {
+    background: #777; /* Slightly Darker Gray */
+}
+
+#transactionHistoryContainer tbody tr:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+#transactionHistoryContainer .highlight-red {
+    color: #dc3545; /* Red */
+}
+
+#transactionHistoryContainer .highlight-green {
+    color: #28a745; /* Green */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 
+ we use the webkit scroll to change the width for the scroll bar
+*/
+html::-webkit-scrollbar {
+    width: .8rem;
+    position: fixed;
+    top: 50px; /* Position scrollbar below the nav */
+    z-index: 998; /* Set lower z-index than the nav */
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #dc3545;
+    border-radius: 1rem;
+}
+
+input.is-invalid {
+    border-color: #dc3545; /* Red border color for invalid input */
+    background-color: #fff0f1; /* Light red background color for invalid input */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#wop{
+    padding-top: 15px;
+}
+
+/* The modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: rgba(55, 55, 55, 0.95);; /* Dark Gray */
+    color: #dc3545; /* Red text */
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #f00; /* Red border */
+    width: 80%; /* Could be more or less, depending on screen size */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Box shadow */
+}
+
+/* Close Button */
+.close {
+    color: #dc3545;; /* Red color */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000; /* Black color on hover/focus */
+    text-decoration: none;
+}
+
+/* Additional Styling */
+.modal-content h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.modal-content form label {
+    color: #ddd; /* Light Gray */
+}
+
+.modal-content form input[type="tel"] {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #777; /* Gray */
+    background-color: #555; /* Dark Gray */
+    color: #ddd; /* Light Gray */
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-content form input[type="tel"]:focus {
+    background-color: #666; /* Darker Gray */
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(239, 253, 238, 0.7);
+}
+
+.modal-content form button[type="submit"] {
+    background: #dc3545; /* Red - PayPal's primary color */
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content form button[type="submit"]:hover {
+    background: #c82333; /* Slightly Darker Red */
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+}
+
